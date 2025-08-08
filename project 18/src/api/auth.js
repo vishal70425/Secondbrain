@@ -15,7 +15,7 @@ Object.defineProperty(exports, "__esModule", { value: true });
 exports.authApi = void 0;
 // src/api/auth.ts
 const axios_1 = __importDefault(require("axios"));
-const API_BASE_URL = "http://localhost:4000/api/v1";
+const API_BASE_URL =import.meta.env.VITE_API_BASE_URL!;
 const api = axios_1.default.create({
     baseURL: API_BASE_URL,
     headers: { "Content-Type": "application/json" },
