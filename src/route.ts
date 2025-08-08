@@ -15,8 +15,11 @@ const RELEVANCE_THRESHOLD = 0.8; // Increased to filter out less relevant matche
 
 type Resource = { id: string; title: string; link: string; score: number };
 
-const PYTHON_API = process.env.LLM_SERVER_URL!;
-
+const rawUrl = process.env.LLM_SERVER_URL!;
+if (!rawUrl) {
+  throw new Error("LLM_SERVER_URL must be set");
+}
+export const PYTHON_API = rawUrl.replace(/\/+$/, "");
 const pinecone = new Pinecone({
   apiKey: process.env.PINECONE_API_KEY!,
 });
