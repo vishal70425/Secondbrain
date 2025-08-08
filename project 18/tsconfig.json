@@ -1,0 +1,12 @@
+// tsconfig.json
+{
+  "extends": "./tsconfig.app.json",
+  "compilerOptions": {
+    // ← *Add these two* so shadcn/ui can detect your alias
+    "baseUrl": ".",
+    "paths": {
+      "@/*": ["src/*"]
+    }
+  },
+  "include": ["src"]
+}
